@@ -10,29 +10,37 @@ $starfield = new Book('Starfield', $AngeloRoudani, '2023', $space, '46');
 
 $starfield->setPrice(16);
 
-function likes( $names ) {
-      
-    if(!isset($names)) {
-      
-      return "no one likes this";
-      
-    } else if (count($names) == 1) {
-      
-      return $names[0].' '.'likes this';
-      
-    } else if (count($names) == 2) {
-      
-      return $names[0].'and'. $names[1]. 'like this';
-    } else if (count($names) == 3) {
-      
-      return $names[0].','.$names[1].'and'. $names[2]. 'like this';
-    } else {
-      
-      return $names[0].','.$names[1].'and'. (count($names) - 2 ). 'like this';
-    }
+
+//snippet verifica numero primo
+
+$chooseOne = 72;
+
+function getNumbers($verify) {
+  $numbers = [];
+  for ($i = 1 ; $i < $verify + 1 ; $i++) {
+    $numbers[] = $i;
+  }
+  return $numbers;
 }
 
-$stars = ['Gianni', 'Tarrukki', 'George', 'Frank']
+
+function verifyNumber($randomNumber) {
+
+  $numbers = getNumbers($randomNumber);
+  $newNumbers = array_slice($numbers, 1, $randomNumber - 2);
+  var_dump($newNumbers);
+  
+  foreach($newNumbers as $number) {
+
+    if((($randomNumber % $number) == 0)) {
+      return 'il numero '. $randomNumber. ' non è primo';
+    } else {
+      return 'Il numero '. $randomNumber. ' è primo';
+    }
+  }
+}
+
+
   
 
 
@@ -74,12 +82,11 @@ $stars = ['Gianni', 'Tarrukki', 'George', 'Frank']
     </div>
 
     <div>
-    <?php echo likes( $stars ) ?>;
+      <?php echo verifyNumber($chooseOne) ?>
     </div>
 
-    <input type="text" id="figa">
-    <button onclick="getList()">aggiungi</button>
-    <div id="list"></div>
+
+    
 
     <script type="text/javascript" src="main.js"></script>
     
