@@ -36,9 +36,9 @@ function verifyNumber($randomNumber) {
 
     $isPrimeNumber = true;
     
-        for($i = $newNumbers[0]; $i < count($newNumbers) ; $i++) {
+        foreach($newNumbers as $number) {
 
-            if((($randomNumber % $newNumbers[$i]) == 0)) {
+            if((($randomNumber % $number) == 0)) {
                 $isPrimeNumber = false;
             }
         }
