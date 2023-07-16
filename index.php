@@ -13,37 +13,44 @@ $starfield->setPrice(16);
 
 //snippet verifica numero primo
 
-$chooseOne = 72;
+$chooseOne = 0;
+
+if(isset($_POST['insertNumber'])) {
+    $chooseOne = $_POST['insertNumber'];
+}
+//var_dump($chooseOne);
 
 function getNumbers($verify) {
-  $numbers = [];
-  for ($i = 1 ; $i < $verify + 1 ; $i++) {
-    $numbers[] = $i;
-  }
-  return $numbers;
+    $numbers = [];
+    for ($i = 1 ; $i < $verify + 1 ; $i++) {
+        $numbers[] = $i;
+    }
+    return $numbers;
 }
 
 
 function verifyNumber($randomNumber) {
 
-  $numbers = getNumbers($randomNumber);
-  $newNumbers = array_slice($numbers, 1, $randomNumber - 2);
-  var_dump($newNumbers);
-  
-  foreach($newNumbers as $number) {
+    $numbers = getNumbers($randomNumber);
+    $newNumbers = array_slice($numbers, 1, $randomNumber - 2);
 
-    if((($randomNumber % $number) == 0)) {
-      return 'il numero '. $randomNumber. ' non è primo';
+    $isPrimeNumber = true;
+    
+        for($i = $newNumbers[0]; $i < count($newNumbers) ; $i++) {
+
+            if((($randomNumber % $newNumbers[$i]) == 0)) {
+                $isPrimeNumber = false;
+            }
+        }
+    var_dump($isPrimeNumber);
+    
+
+    if($isPrimeNumber) {
+        return 'Il numero '. $randomNumber. ' è primo';
     } else {
-      return 'Il numero '. $randomNumber. ' è primo';
+        return 'il numero '. $randomNumber. ' non è primo';
     }
-  }
 }
-
-
-  
-
-
 
 ?>
 
@@ -82,7 +89,12 @@ function verifyNumber($randomNumber) {
     </div>
 
     <div>
-      <?php echo verifyNumber($chooseOne) ?>
+        <form action="index.php" method="post">
+            <label for="insertNumber">Inserisci un numero</label>
+            <input id="insertNumber" type="number" name="insertNumber">
+            <button type="submit">Invio</button>
+        </form>
+        <?php echo verifyNumber($chooseOne) ?>
     </div>
 
 
