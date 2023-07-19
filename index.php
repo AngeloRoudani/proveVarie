@@ -45,7 +45,9 @@ function verifyNumber($randomNumber) {
     var_dump($isPrimeNumber);
     
 
-    if($isPrimeNumber) {
+    if($randomNumber == 0) {
+        return 'il numero '. $randomNumber. ' non è primo';
+    } else if ($isPrimeNumber) {
         return 'Il numero '. $randomNumber. ' è primo';
     } else {
         return 'il numero '. $randomNumber. ' non è primo';

@@ -36,8 +36,10 @@ for (let i = 0; i <= star.length - 1; i++) {
 function removeDomStars() {
 
     for(let i = 1; i <= star.length; i++) {
+
         const eraseStar = document.querySelector("i:first-child")
         eraseStar.parentElement.removeChild(eraseStar)
+        
     }
 
 }
