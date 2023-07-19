@@ -20,9 +20,9 @@ if(isset($_POST['insertNumber'])) {
 }
 //var_dump($chooseOne);
 
-function getNumbers($verify) {
+function getNumbers($randomNumber) {
     $numbers = [];
-    for ($i = 1 ; $i < $verify + 1 ; $i++) {
+    for ($i = 1 ; $i < $randomNumber + 1 ; $i++) {
         $numbers[] = $i;
     }
     return $numbers;
