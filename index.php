@@ -13,7 +13,7 @@ $starfield->setPrice(16);
 
 //snippet verifica numero primo
 
-$chooseOne = 0;
+$chooseOne = 2;
 
 if(isset($_POST['insertNumber'])) {
     $chooseOne = $_POST['insertNumber'];
@@ -101,7 +101,7 @@ function verifyNumber($randomNumber) {
 
     <div class="starWrapper">
 
-        
+
     </div>
 
 
