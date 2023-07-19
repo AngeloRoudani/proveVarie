@@ -25,10 +25,10 @@ for (let i = 0; i <= star.length - 1; i++) {
 
         singleStar = parseInt([i + 1]);
         starList = getStars(singleStar);
-        removeDomStars()
+        removeDomStars();
         getDomStars(starList);
 
-    })
+    });
 }
 
 //funzione di rimozione elementi dal DOM
@@ -39,7 +39,7 @@ function removeDomStars() {
 
         const eraseStar = document.querySelector("i:first-child")
         eraseStar.parentElement.removeChild(eraseStar)
-        
+
     }
 
 }
