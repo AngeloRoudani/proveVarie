@@ -13,22 +13,29 @@ function getDomStars(list) {
     }
 }
 getDomStars(starList)
+const star = document.querySelectorAll('.fa-star');
+console.log(star)
+getEventListener()
 
 //ciclo che aggiunge a ogni stella un ascoltatore di eventi
 
-const star = document.querySelectorAll('.fa-star');
-console.log(star)
+function getEventListener() {
 
-for (let i = 0; i <= star.length - 1; i++) {
+    const star = document.querySelectorAll('.fa-star');
+    console.log(star)
 
-    star[i].addEventListener('click', function() { 
+    for (let i = 0; i <= star.length - 1; i++) {
 
-        singleStar = parseInt([i + 1]);
-        starList = getStars(singleStar);
-        removeDomStars();
-        getDomStars(starList);
+        star[i].addEventListener('click', function() { 
 
-    });
+            singleStar = parseInt([i + 1]);
+            starList = getStars(singleStar);
+            removeDomStars();
+            getDomStars(starList);
+            getEventListener();
+
+        });
+    }
 }
 
 //funzione di rimozione elementi dal DOM
